@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "324138777478",
+    "project_id": "musicappproject-3bb51",
+    "storage_bucket": "musicappproject-3bb51.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324138777478:android:918487712af26c8f650a07",
+        "android_client_info": {
+          "package_name": "com.tuna.musicappproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFdq7IaLxDzcmjxUG8vugIuDVALidcvqY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
