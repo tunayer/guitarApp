@@ -36,6 +36,5 @@ val scaleMap: Map<String, List<String>> = mapOf(
     ),
     "B" to listOf(
         "B Ionian", "B Dorian", "B Phrygian", "B Lydian", "B Mixolydian", "B Aeolian", "B Locrian", "B Harmonic Minor", "B Melodic Minor"
-    ),
-
     )
+)

@@ -59,7 +59,7 @@ val scaleDegrees: Map<String, Map<String, String>> = mapOf(
         "b7" to "E", "7" to "F"
     ),
     "G#" to mapOf(
-        "1" to "G#", "b2" to "A", "2" to "A#", "b3" to "B", "3" to "C",
+        "1" to "G#", "b2" to "A", "2" to "A#", "b3" to "B", "3" to "B#",
         "4" to "C#", "b5" to "D", "5" to "D#", "b6" to "E", "6" to "F",
         "b7" to "F#", "7" to "G"
     ),
@@ -88,16 +88,6 @@ val scaleDegrees: Map<String, Map<String, String>> = mapOf(
         "4" to "Db", "b5" to "Ebb", "5" to "Eb", "b6" to "Fb", "6" to "F",
         "b7" to "Gb", "7" to "G"
     )
-
-
-
-
-
-
-
-
-
-
 )
 
 val scales = scaleDegrees.keys.toList()

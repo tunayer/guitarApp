@@ -1,7 +1,5 @@
 package com.tuna.musicappproject
 
-val notes = listOf("A", "A#", "Bb", "B", "C", "C#", "Db", "D", "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab")
-
 val chordMap: Map<String, List<String>> = mapOf(
     "C" to listOf(
         "C", "Cm", "Caug", "Cdim⁷", "Csus", "Csus₂", "C⁶", "Cm⁶", "C⁶⁄⁹", "C⁷sus", "Csus⁹",
@@ -104,7 +102,5 @@ val chordMap: Map<String, List<String>> = mapOf(
         "Bsusᵇ⁹", "Bsus¹³", "Bm⁽ᵃᵈᵈ⁹⁾", "Bm⁷", "Bm⁹", "Bm¹¹", "Bm¹³", "Bm⁷⁽ᵇ¹³⁾",
         "Bmᵐᵃʲ⁷", "Bᵐᵃʲ⁷", "Bᵐᵃʲ⁹", "Bᵐᵃʲ¹³", "Bᵐᵃʲ⁷⁽#⁵⁾", "B⁷", "B⁹", "B¹³",
         "B⁷⁽ᵇ⁹⁾", "B⁷⁽ᵇ¹³⁾", "B⁷⁽ᵇ⁵⁾", "Bm⁷⁽ᵇ⁵⁾"
-    ),
-
-
+    )
 )

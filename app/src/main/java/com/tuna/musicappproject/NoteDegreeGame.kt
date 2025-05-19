@@ -18,9 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -43,12 +41,7 @@ fun NoteDegreeGameUI() {
             text = "RANDOM DEGREE OF A NOTE",
             style = MaterialTheme.typography.headlineSmall.copy(
                 fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
-                shadow = Shadow(
-                    color = Color(0xFFfcd560),
-                    offset = Offset(2f, 2f),
-                    blurRadius = 4f
-                )
+                fontSize = 20.sp
             ),
             modifier = Modifier.padding(top = 30.dp)
         )
@@ -58,7 +51,6 @@ fun NoteDegreeGameUI() {
         Text(fontFamily = FontFamily.Monospace,
             fontSize = 12.sp,
             text = "Try to guess the scale degree of the given note!",
-
             )
 
         Spacer(modifier = Modifier.padding(10.dp))
@@ -76,12 +68,10 @@ fun NoteDegreeGameUI() {
             modifier = Modifier.background(
                 Color(0xFFfcd560),
                 shape = RoundedCornerShape(12.dp)
-            ),
+            )
         )
         {
             Text("GET A RANDOM NOTE", fontFamily = FontFamily.Monospace)
-
-
         }
 
         Spacer(modifier = Modifier.padding(5.dp))
@@ -89,8 +79,7 @@ fun NoteDegreeGameUI() {
         OutlinedTextField(
             value = scale,
             onValueChange = {},
-            label = { Text("Note", fontFamily = FontFamily.Monospace
-            ) },
+            label = { Text("Note", fontFamily = FontFamily.Monospace) },
             enabled = false
         )
 
@@ -99,15 +88,14 @@ fun NoteDegreeGameUI() {
         OutlinedTextField(
             value = degree,
             onValueChange = {},
-            label = { Text("Degree", fontFamily = FontFamily.Monospace
-            ) },
+            label = { Text("Degree", fontFamily = FontFamily.Monospace) },
             enabled = false
         )
 
         Spacer(modifier = Modifier.padding(5.dp))
 
         Button(onClick = {
-            answer = scaleDegrees[scale]?.get(degree) ?: "Invalid scale or degree."
+            answer = scaleDegrees[scale]?.get(degree) ?: ""
         },
 
             colors = ButtonDefaults.buttonColors(
@@ -120,17 +108,15 @@ fun NoteDegreeGameUI() {
                 shape = RoundedCornerShape(12.dp)
             ),
         ) {
-
             Text("SEE THE ANSWER!", fontFamily = FontFamily.Monospace)
         }
 
         OutlinedTextField(
             value = answer,
-
             onValueChange = {},
-            label = { Text("Show", fontFamily = FontFamily.Monospace
-            ) },
+            label = { Text("Show", fontFamily = FontFamily.Monospace) },
             enabled = false
         )
     }
 }
+

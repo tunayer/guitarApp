@@ -1,6 +1,5 @@
 package com.tuna.musicappproject
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -30,15 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-// import com.tuna.musicappproject.chordMap
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.LocalContext
 import coil.compose.AsyncImage
 import com.google.firebase.storage.FirebaseStorage
 
@@ -50,9 +41,7 @@ fun ChordFinderUI() {
     var selectedNote by remember { mutableStateOf("C") }
     var selectedChord by remember { mutableStateOf("cmaj7") }
 
-
     val displayedChords = chordMap[selectedNote] ?: emptyList()
-
 
     Column(
         modifier = Modifier
@@ -105,10 +94,12 @@ fun ChordFinderUI() {
         }
         @Composable
         fun FirebaseChordImage(chordName: String) {
-            val context = LocalContext.current
             var imageUrl by remember { mutableStateOf<String?>(null) }
 
             LaunchedEffect(chordName) {
+                getChordImageUrl(chordName) { url ->
+                    imageUrl = url
+                }
                 val storage = FirebaseStorage.getInstance()
                 val storageRef = storage.reference
                 val normalized = normalizeChord(chordName)
@@ -121,8 +112,7 @@ fun ChordFinderUI() {
                 }
             }
 
-            imageUrl?.let { url ->
-                AsyncImage(
+            imageUrl?.let { url -> AsyncImage(
                     model = url,
                     contentDescription = chordName,
                     modifier = Modifier
@@ -136,10 +126,6 @@ fun ChordFinderUI() {
 
         FirebaseChordImage(selectedChord)
 
-
-
-
-
     }
 }
 
@@ -149,5 +135,4 @@ fun ChordFinderUI() {
 @Composable
 fun Preview() {
     ChordFinderUI()
-
 }

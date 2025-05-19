@@ -1,6 +1,5 @@
 package com.tuna.musicappproject
 
-import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -28,32 +27,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.google.android.gms.tasks.Task
 import com.google.firebase.storage.FirebaseStorage
 import com.tuna.musicappproject.ui.theme.MusicAppProjectTheme
 
 @Composable
 
 fun ScaleFinderUI() {
-    val notes = listOf(
-        "A",
-        "A#/Bb",
-        "B",
-        "C",
-        "C#/Db",
-        "D",
-        "D#/Eb",
-        "E",
-        "F",
-        "F#/Gb",
-        "G",
-        "G#/Ab",
-    )
+    val notes = listOf("A", "A#/Bb", "B", "C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab")
     var selectedNote by remember { mutableStateOf("C") }
     var selectedScale by remember { mutableStateOf("c ionian") }
 
@@ -105,19 +89,19 @@ fun ScaleFinderUI() {
                 }
             }
         }
+
         Spacer(modifier = Modifier.padding(5.dp))
+
         FirebaseScaleImage(selectedScale)
 
     }
 
     Spacer(modifier = Modifier.padding(5.dp))
 
-
 }
 
 @Composable
 fun FirebaseScaleImage(scaleName: String) {
-    val context = LocalContext.current
     var imageUrl by remember { mutableStateOf<String?>(null) }
 
     LaunchedEffect(scaleName) {
@@ -136,8 +120,7 @@ fun FirebaseScaleImage(scaleName: String) {
         }
     }
 
-    imageUrl?.let { url ->
-        AsyncImage(
+    imageUrl?.let { url -> AsyncImage(
             model = url,
             contentDescription = scaleName,
             modifier = Modifier
@@ -149,9 +132,6 @@ fun FirebaseScaleImage(scaleName: String) {
     }
 
 }
-
-
-
 
 @Preview(showBackground = true)
 @Composable

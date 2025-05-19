@@ -52,12 +52,32 @@ class MainActivity : ComponentActivity() {
                     Screen.NoteDegreeGame -> NoteDegreeGameUI()
                     Screen.ChordFinder -> ChordFinderUI()
                     Screen.ScaleFinder -> ScaleFinderUI()
+
                 }
             }
         }
     }
 }
-
+@Composable
+fun IconButtonWithLabel(
+    iconContent: @Composable () -> Unit,
+    label: String,
+    onClick: () -> Unit
+) {
+    Button(
+        onClick = onClick,
+        shape = CircleShape,
+        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfcd560)),
+        modifier = Modifier
+            .size(140.dp)
+    ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            iconContent()
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(label, fontFamily = FontFamily.Monospace, fontSize = 12.sp)
+        }
+    }
+}
 @Composable
 fun MainScreen(
     onNavigateToNoteGame: () -> Unit,
@@ -94,28 +114,6 @@ fun MainScreen(
         )
     }
 }
-
-@Composable
-fun IconButtonWithLabel(
-    iconContent: @Composable () -> Unit,
-    label: String,
-    onClick: () -> Unit
-) {
-    Button(
-        onClick = onClick,
-        shape = CircleShape,
-        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfcd560)),
-        modifier = Modifier
-            .size(140.dp)
-    ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            iconContent()
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(label, fontFamily = FontFamily.Monospace, fontSize = 12.sp)
-        }
-    }
-}
-
 
 @Preview(showBackground = true)
 @Composable
